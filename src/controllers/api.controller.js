@@ -1,4 +1,5 @@
 const data = require("../../data.json");
+const isLeapYear = require("./../utilities/isLeapYear");
 
 class ApiService {
   getDay(date) {
@@ -14,8 +15,8 @@ class ApiService {
   }
   daily(date) {
     const result = [];
-    let hours = [];
-    let dailyList = this.getDay(date);
+    const hours = [];
+    const dailyList = this.getDay(date);
     for (let i = 0; i < 24; i++) {
       if (i < 10) {
         let hour = `0${i}`;
@@ -66,6 +67,42 @@ class ApiService {
       } else {
         result.push({
           meter_date: `${dayOfTheWeek} 00:00:00`,
+          value: 0,
+        });
+      }
+    }
+    return result;
+  }
+  monthly(date) {
+    const months = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+    const year = Number(date.slice(0, 4));
+    if (isLeapYear(year)) {
+      months[1] = 29;
+    }
+    const newDate = new Date(date);
+    const month = newDate.getMonth();
+    const result = [];
+
+    for (let i = 1; i <= months[month]; i++) {
+      let dayOfTheMonth = "";
+      if (i < 10) {
+        dayOfTheMonth = date.slice(0, 8) + `0${i}`;
+        console.log(dayOfTheMonth);
+      } else {
+        dayOfTheMonth = date.slice(0, 8) + i;
+        console.log(dayOfTheMonth);
+      }
+      let dayList = this.getDay(dayOfTheMonth);
+      if (dayList.length != 0) {
+        let operation =
+          dayList[dayList.length - 1].active_energy - dayList[0].active_energy;
+        result.push({
+          meter_date: `${dayOfTheMonth} 00:00:00`,
+          value: operation,
+        });
+      } else {
+        result.push({
+          meter_date: `${dayOfTheMonth} 00:00:00`,
           value: 0,
         });
       }

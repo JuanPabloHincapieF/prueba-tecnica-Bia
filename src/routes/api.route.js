@@ -13,8 +13,8 @@ router.post("/", function (req, res) {
     } else if (period === "weekly") {
       const result = apiService.weekly(date);
       return res.status(200).json(result);
-    } else if (period === "test") {
-      const result = apiService.getDay(date);
+    } else if (period === "monthly") {
+      const result = apiService.monthly(date);
       return res.status(200).json(result);
     }
   }
