@@ -7,9 +7,7 @@ app.use(express.json());
 app.use("/api", require("./routes/api.route"));
 
 app.listen(port, () => {
-  console.log(
-    `El servidor esta escuchando en el puerto http://localhost:${port} ...`
-  );
+  console.log(`Server listening on port http://localhost:${port} ...`);
 });
 
 module.exports = app;

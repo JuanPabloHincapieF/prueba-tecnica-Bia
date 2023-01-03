@@ -2,12 +2,13 @@
   "name": "prueba-tecnica-bia",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/app.js",
   "scripts": {
-    "test": "mocha src/tests/users.test.js --exit"
+    "test": "mocha src/tests/api.test.js --exit",
+    "dev": "node ./src/app.js "
   },
   "keywords": [],
-  "author": "",
+  "author": "Juan Pablo Hincapie Forero",
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.2",

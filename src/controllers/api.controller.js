@@ -87,10 +87,8 @@ class ApiService {
       let dayOfTheMonth = "";
       if (i < 10) {
         dayOfTheMonth = date.slice(0, 8) + `0${i}`;
-        console.log(dayOfTheMonth);
       } else {
         dayOfTheMonth = date.slice(0, 8) + i;
-        console.log(dayOfTheMonth);
       }
       let dayList = this.getDay(dayOfTheMonth);
       if (dayList.length != 0) {
