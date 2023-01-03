@@ -2,6 +2,7 @@ const data = require("../../data.json");
 const isLeapYear = require("./../utilities/isLeapYear");
 
 class ApiService {
+  //Get an array with the data of a specific date
   getDay(date) {
     let result = [];
     for (let i = 0; i < data.length; i++) {
@@ -13,6 +14,7 @@ class ApiService {
     }
     return result;
   }
+  // Get daily 24 hours consumption
   daily(date) {
     const result = [];
     const hours = [];
@@ -47,7 +49,7 @@ class ApiService {
     }
     return result;
   }
-
+  // Get weekly consumption
   weekly(date) {
     const newDate = new Date(date);
     const day = Number(date.slice(8, 10));
@@ -73,6 +75,7 @@ class ApiService {
     }
     return result;
   }
+  // Get monthly consumption
   monthly(date) {
     const months = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
     const year = Number(date.slice(0, 4));
