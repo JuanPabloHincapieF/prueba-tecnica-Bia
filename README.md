@@ -87,7 +87,7 @@ Información enviada en el body:
 }
 ```
 
-La respuesta de esta peticion será:
+La respuesta de esta petición será:
 
 ```JSON
 [
