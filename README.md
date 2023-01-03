@@ -2,7 +2,7 @@
 
 ## Instalación
 
-Para poder instalar este aplicativo debemos de clonar el repositorio en una carpeta donde vamos a guardar el proyecto:
+Para poder instalar este aplicativo debemos de clonar el repositorio en una carpeta donde vamos a guardar el proyecto, este proyecto fue creado con NodeJS:
 
 ```bash
 git clone https://github.com/JuanPabloHincapieF/prueba-tecnica-Bia.git
